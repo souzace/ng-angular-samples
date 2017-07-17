@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 	<head>
 			<title>Simple App</title>
 			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+			<script>
+					angular.module('myApp',[])
+						.run(function($rootScope) {
+							$rootScope.name = 'World';
+						});
+
+			</script>
 	</head>
 	<body>
 		<input ng-model="name" type="text" placeholder="Your name">
