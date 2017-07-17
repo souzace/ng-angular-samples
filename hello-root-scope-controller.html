@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-	<head>
-			<title>Simple App</title>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
-			<script>
-					angular.module('myApp',[])
-						.controller('MyController', function($scope) {	
-							$scope.name = 'World';
-						});
-			</script>
-	</head>
-	<body>
-		<div ng-app="myApp">
-			<div ng-controller="MyController">
-				<h1>Hello {{ name }}</h1>
-			</div>
+<head>
+	<title>Simple App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+	<script>
+		angular.module('myApp',[])
+			.controller('MyController', function($scope) {	
+				$scope.name = 'World';
+			});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="MyController">
+			<h1>Hello {{ name }}</h1>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
