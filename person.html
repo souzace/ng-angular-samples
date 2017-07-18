@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+	<script>
+		angular.module('myApp',[])
+			.controller('MyController', function($scope) {	
+				$scope.person = {
+					name: 'Ari'
+				};
+			});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="MyController">
+			<h1>{{ person }}</h1>
+			and their name:
+			<h1>Hello {{ person.name }}</h1>
+		</div>
+	</div>
+</body>
+</html>

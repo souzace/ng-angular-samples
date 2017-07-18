@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('ParentController', function($scope) {
+			$scope.person = {
+				greeted: false
+			};
+		});
+		
+		app.controller('ChildController', function($scope) {
+			
+			$scope.sayHello = function() {
+				$scope.person.name = 'Ari Lerner';
+				$scope.person.greeted = true;
+			}
+			
+		});
+
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="ParentController">
+			<div ng-controller="ChildController">	
+				<a ng-click="sayHello()" class="btn btn-info">Say Hello</a>
+			</div>
+			{{ person }}
+		</div>
+	</div>
+</body>
+</html>
