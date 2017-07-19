@@ -10,7 +10,7 @@
 								['$scope', 'EmailParser',
 									function($scope, EmailParser) {
 										// Set up a watch
-										$scope.emailBody = 'Hi __to__';
+										$scope.emailBody = 'Hi __to__\n\n';
 										$scope.$watch('emailBody', function(body) {
 											if (body) {
 												$scope.previewText = 
