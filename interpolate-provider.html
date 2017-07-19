@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+	<script>
+		angular.module('myApp', ['emailParser'])
+			.controller('MyController', 
+								['$scope', 'EmailParser',
+									function($scope, EmailParser) {
+										// Set up a watch
+										$scope.emailBody = 'Hi __to__';
+										$scope.$watch('emailBody', function(body) {
+											if (body) {
+												$scope.previewText = 
+												EmailParser.parse(body, {
+													to: $scope.to
+												});
+											}
+										});
+				}]);
+			angular.module('emailParser',[])
+				.config(['$interpolateProvider', 
+									function($interpolate) {	
+										$interpolate.startSymbol('__');
+										$interpolate.endSymbol('__');
+				}])
+				.factory('EmailParser', ['$interpolate',
+																	function($interpolate) {
+																		// a service to handle parsing
+																		return {
+																			parse: function(text, context) {
+																				var template = $interpolate(text);
+																				return template(context);
+																			}
+																		}
+					}]);
+			 
+						
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="MyController">
+			<div id="emailEditor">
+				<div class="form-group">
+					<label for="">Email address</label>
+					<input ng-model="to" type="email" class="form-control" placeholder="Recipient" />
+				</div>
+				<div class="form-group">
+					<label for="">Text</label>
+					<textarea ng-model="emailBody" class="form-control"></textarea>
+				</div>
+			</div>	
+			<div id="emailPreview">
+				<pre>__previewText__</pre>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>
