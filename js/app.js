@@ -12,4 +12,22 @@ function MyController($scope){
     }, 1000);
 
     updateClock();
+
+}
+
+function DateController($scope){
+    $scope.today = {
+        now: Date.now()
+    };
+
+    var updateClock = function() {
+        $scope.today.now = Date.now()
+    };
+
+    setInterval(function() {
+        $scope.$apply(updateClock);
+    }, 1000);
+
+    updateClock();
+
 }

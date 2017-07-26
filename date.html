@@ -1,27 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
 	<title>Simple App</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
-	<script type="text/javascript">
-	 	angular.module('myApp',[]).
-			controller('DateController',function($scope){
-			$scope.today = Date.now();
-		});
-	
-	</script>
+	<script src="js/app.js"></script>
 </head>
 <body>
-	<div ng-app="myApp">
+	<div>
 		<div ng-controller="DateController">
-			<h1>{{ today | date:'medium' }}</h1>
-			<h1>{{ today | date:'short' }}</h1>
-			<h1>{{ today | date:'fullDate' }}</h1>
-			<h1>{{ today | date:'longDate' }}</h1>
-			<h1>{{ today | date:'mediumDate' }}</h1>
-			<h1>{{ today | date:'shortDate' }}</h1>
-			<h1>{{ today | date:'mediumTime' }}</h1>
-			<h1>{{ today | date:'shortTime' }}</h1>
+			<h1>{{ today.now | date:'medium' }}</h1>
+			<h1>{{ today.now | date:'short' }}</h1>
+			<h1>{{ today.now | date:'fullDate' }}</h1>
+			<h1>{{ today.now | date:'longDate' }}</h1>
+			<h1>{{ today.now | date:'mediumDate' }}</h1>
+			<h1>{{ today.now | date:'shortDate' }}</h1>
+			<h1>{{ today.now | date:'mediumTime' }}</h1>
+			<h1>{{ today.now | date:'shortTime' }}</h1>
+			<hr></hr>
+			<h1>Four-digit year: {{ today.now | date:'yyyy' }}</h1>
+			<h1>Two-digit year: {{ today.now | date:'yy' }}</h1>
+			<h1>One-digit year: {{ today.now | date:'y' }}</h1>
+			<hr></hr>
+			<h1>Month in year: {{ today.now | date:'MMMM' }}</h1>
+			<h1>Short month in year: {{ today.now | date:'MMM' }}</h1>
+			<h1>Padded month in year: {{ today.now | date:'MM' }}</h1>
+			<h1>Month month in year: {{ today.now | date:'M' }}</h1>
+			<hr></hr>
+			<h1>Padded day in month: {{ today.now | date:'dd' }}</h1>
+			<h1>Day in month: {{ today.now | date:'d' }}</h1>
+			<h1>Day in week: {{ today.now | date:'EEEE' }}</h1>
+			<h1>Short day in week: {{ today.now | date:'EEE' }}</h1>
+			<hr></hr>
+			<h1>Padded hour in day: {{ today.now | date:'HH' }}</h1>
+			<h1>Hour in day: {{ today.now | date:'H' }}</h1>
+			<h1>Padded hour in am/pm: {{ today.now | date:'hh' }}</h1>
+			<h1>Hour in am/pm: {{ today.now | date:'h' }}</h1>
+			<hr></hr>
+			<h1>Padded minute in hour: {{ today.now | date:'mm' }}</h1>
+			<h1>Minute in hour: {{ today.now | date:'m' }}</h1>
+			<hr></hr>
+			<h1>Padded second in minute: {{ today.now | date:'ss' }}</h1>
+			<h1>Second in minute: {{ today.now | date:'s' }}</h1>
+			<hr></hr>
+			<h1>Padded millisecond in second: {{ today.now | date:'.sss' }}</h1>
+			<hr></hr>
+			<h1>am/pm character: {{ today.now | date:'a' }}</h1>
+			<h1>4-digit representation of time zone offset: {{ today.now | date:'Z' }}</h1>
+			<hr></hr>
+			<h1>Custom: {{ today.now | date:'MM d, y' }}</h1>
+			<h1>Custom: {{ today.now | date:'EEEE, d, M' }}</h1>
+			<h1>Custom: {{ today.now | date:'hh:mm:ss.sss' }}</h1>
 		</div>
 	</div>
 </body>
