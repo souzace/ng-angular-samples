@@ -7,6 +7,9 @@
 		angular.module('myApp',[])
 			.controller('DemoController', ['$scope', '$filter', function($scope, $filter) {	
 				$scope.name = $filter('lowercase')('Ari');
+				$scope.isCapitalized = function(str) {
+					return str[0] == str[0].toUpperCase();
+				}
 			}]);
 	</script>
 </head>
@@ -14,8 +17,27 @@
 	<div ng-app="myApp">
 		<div ng-controller="DemoController">
 			<h1>{{ name | uppercase }}</h1>
-			<!-- Displays: 123.46 -->
+			<hr></hr>
 			<h1>{{ 123.456789 | number:2 }}</h1>
+			<hr></hr>
+			<h1>{{ ['Ari', 'Lerner', 'Likes', 'To', 'Eat', 'Pizza'] | filter:'e' }}</h1>
+			<hr></hr>
+			<h1>{{ [{
+						'name': 'Ari',
+						'City': 'San Francisco',
+						'favorite food': 'Pizza'
+						 } ,
+						{
+						'name': 'Nate',
+						'City': 'San Francisco',
+						'favorite food': 'indian food'
+						 }] | filter: { 'favorite food': 'Pizza'}
+					}}
+			</h1>
+			<hr></hr>
+			<h1>{{ ['Ari', 'likes', 'to', 'travel'] | filter:isCapitalized }}</h1>
+			<hr></hr>
+			<h1>{{ { 'name': 'Ari', 'City': 'San Francisco'} | json }}</h1>
 		</div>
 	</div>
 </body>
