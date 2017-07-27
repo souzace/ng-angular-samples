@@ -38,6 +38,16 @@
 			<h1>{{ ['Ari', 'likes', 'to', 'travel'] | filter:isCapitalized }}</h1>
 			<hr></hr>
 			<h1>{{ { 'name': 'Ari', 'City': 'San Francisco'} | json }}</h1>
+			<hr></hr>
+			<h1>{{ 'San Francisco is very cloudy' | limitTo: 3 }}</h1>
+			<h1>{{ 'San Francisco is very cloudy' | limitTo: -6 }}</h1>
+			<hr></hr>
+			<h1>{{ ['a', 'b', 'c', 'd', 'e', 'f'] | limitTo: 1 }}</h1>
+			<hr></hr>
+			<h1>{{ 'San Francisco is very cloudy' | lowercase }}</h1>
+			<hr></hr>
+			<h1>{{ 123456789 | number }}</h1>
+			<h1>{{ 1.234567 | number:2 }}</h1>
 		</div>
 	</div>
 </body>
